@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\AdminUserController;
 
 use App\Models\User;
 use GuzzleHttp\Promise\Create;
@@ -62,6 +62,11 @@ class AdminUSerController extends Controller
     public function edit(string $id)
     {
         //
+        $data = [
+            'user'      =>User::find($id),
+            'content'   =>'admin.user.create'
+        ];
+        return view('admin.layouts.wrapper', $data);
     }
 
     /**
@@ -70,6 +75,22 @@ class AdminUSerController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $user = User::find($id);
+        $data = $request->validation([
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email'.$user->$id,
+            //'password' => 'required',
+            're_password' => 'same:password',
+        ]);
+
+        if($request->password !=''){
+            $data['password']= Hash::make($request->password);
+        }else{
+            $data['password'] =$user->password;
+        }
+
+        $user->update($data);
+        return redirect('/admin/user');
     }
 
     /**

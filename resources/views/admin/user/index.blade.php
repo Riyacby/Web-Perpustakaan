@@ -13,10 +13,10 @@
                             <th>Action</th>
                         </tr>
 
-                        @foreach ($user as $item)
+                       
 
                         <tr>
-                            <td>{{$loop->iteration}}</td>
+                            <td>1</td>
                             <td>Fitriyatul Aini</td>
                             <td>fitriyatulaini.pmk@gmail.com</td>
                             <td>
@@ -24,7 +24,7 @@
                                 <a href="" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a>
                             </td>
                         </tr>
-                        @endforeach
+                        
 
                     </table>
                 </div>

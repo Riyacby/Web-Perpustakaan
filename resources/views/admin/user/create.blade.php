@@ -5,7 +5,12 @@
                 <div class="card-body">
                     <h4><b>Tambah Data</b></h4>
 
-                    <form action="/admin/user", method="POST">
+                    @isset($user)
+                        <form action="/admin/user", method="POST">
+                            method('put')
+                    @else
+                    <form action="/admin/user/{{$user}}", method="POST">
+                
                         @csrf
                         <div class="form-group">
                         <label for=""><b>Nama Lengkap</b></label>
@@ -21,8 +26,8 @@
 
                         <div class="form-group">
                         <label for=""><b>Email</b></label>
-                        <input type="email" class="form-control@error('email') is-invalid @enderror" name="email" 
-                        placeholder="Email">
+                        <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" 
+                        placeholder="Email"> value"{{isset($user) ? $user->emailb:''}}">
 
                         @error('email')
                              <div class="invalid-feedback">
