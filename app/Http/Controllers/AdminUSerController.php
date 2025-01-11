@@ -6,6 +6,7 @@ use App\Models\User;
 use GuzzleHttp\Promise\Create;
 use Illuminate\Http\Request;
 
+
 class AdminUSerController extends Controller
 {
     /**
@@ -29,6 +30,10 @@ class AdminUSerController extends Controller
     public function create()
     {
         //
+        $data = [
+            'content' =>'admin.user.create'
+        ];
+        return view('admin.layouts.wrapper',$data);
     }
 
     /**

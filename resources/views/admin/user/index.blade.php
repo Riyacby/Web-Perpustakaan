@@ -3,9 +3,9 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
-                    <a href="/admin/user/create" class="btn btn-primary"><i class="fas fa-plus"></i>Add</a>
+                    <a href="/user/create" class="btn btn-primary"><i class="fas fa-plus"></i>Add</a>
 
-                    <table class="table mt-1">
+                    <table class="table mt-2">
                         <tr>
                             <th>No</th>
                             <th>Name</th>
